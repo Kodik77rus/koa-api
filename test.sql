@@ -23,7 +23,7 @@ CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
 COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
 
 
-SET search_path = $user, public, pg_catalog;
+SET search_path = public, pg_catalog;
 
 SET default_tablespace = '';
 
@@ -327,19 +327,4 @@ ALTER TABLE ONLY lesson_teachers
 
 ALTER TABLE ONLY lesson_teachers
     ADD CONSTRAINT lesson_teachers_teacher_id_fkey FOREIGN KEY (teacher_id) REFERENCES teachers(id);
-
-
---
--- Name: public; Type: ACL; Schema: -; Owner: -
---
-
-REVOKE ALL ON SCHEMA public FROM PUBLIC;
-REVOKE ALL ON SCHEMA public FROM dimon;
-GRANT ALL ON SCHEMA public TO dimon;
-GRANT ALL ON SCHEMA public TO PUBLIC;
-
-
---
--- PostgreSQL database dump complete
---
 
