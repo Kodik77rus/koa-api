@@ -4,7 +4,7 @@ dotenv.config();
 import * as Koa from 'koa';
 import * as logger from 'koa-logger';
 
-import sequelize from './config/sequelize';
+import db from './config/sequelize';
 import router from './routes';
 import config from './config/config';
 
@@ -12,7 +12,7 @@ const app: Koa = new Koa();
 
 (async () => {
   try {
-    await sequelize.authenticate();
+    await db.authenticate();
     app
       .use(router())
       .use(logger())
